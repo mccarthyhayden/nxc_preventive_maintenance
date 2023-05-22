@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_nxc_preventive_maintenance_config" model="ir.ui.view">
+        <field name="name">Nxc Preventive Maintenance Config</field>
+        <field name="model">nxc_preventive_maintenance.config</field>
+        <field name="arch" type="xml">
+            <form string="NXC Preventive Maintenance Config">
+                <field name="responsible_user_cleaning_weekly" />
+                <field name="responsible_user_cleaning_monthly" />
+                <field name="responsible_user_pm_weekly" />
+            </form>
+        </field>
+    </record>
+</odoo>
