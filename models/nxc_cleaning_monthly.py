@@ -59,7 +59,7 @@ class NxcCleaningMonthly(models.Model):
         else:
           record['monthly_cleaning_checklist_complete'] = False
 
-    @api.model_create
+    @api.model
     def new_activity_on_creation(self):
       """Create an Odoo activity for the record on creation."""
       activity = self.env['mail.activity'].create({
@@ -70,6 +70,8 @@ class NxcCleaningMonthly(models.Model):
         'res_id': self.id,
         'res_model': self._name,
       })
+
+      return activity
 
     @api.depends('stage_id')
     def close_activity_on_completion(self):
@@ -98,6 +100,6 @@ class NxcCleaningMonthly(models.Model):
     def _get_sequence(self):
       return 'CLEANING/MONTHLY/%03d' % self.env['ir.sequence'].next_by_code('nxc_cleaning_monthly')
 
-    @api.model_create
+    @api.model
     def set_name(self):
       self.name = self._get_sequence()
