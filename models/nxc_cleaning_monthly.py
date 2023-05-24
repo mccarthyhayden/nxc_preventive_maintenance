@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.addons.base.models.ir_cron import cron_job
 
 class NxcCleaningMonthly(models.Model):
     _inherit = ''
