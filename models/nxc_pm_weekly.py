@@ -35,7 +35,7 @@ class NxcPmWeekly(models.Model):
 
     weekly_pm_checklist_complete = fields.Boolean(string="Checklist Complete", readonly=True, default=False)
 
-    @api.onchange
+    @api.onchange('weekly_pm_item_1', 'weekly_pm_item_2', 'weekly_pm_item_3', 'weekly_pm_item_4', 'weekly_pm_item_5', 'weekly_pm_item_6', 'weekly_pm_item_7', 'weekly_pm_item_8', 'weekly_pm_item_9', 'weekly_pm_checklist_complete')
     def _compute_stage_id(self):
       #This function determines the value of the stage_id.
       #Returns 'inprogress' if the checklist is started, 'done' if the checklist is complete, 'scheduled' otherwise.
@@ -57,7 +57,7 @@ class NxcPmWeekly(models.Model):
         else:
           record['stage_id'] = 'scheduled'
 
-    @api.onchange
+    @api.onchange('weekly_pm_item_1', 'weekly_pm_item_2', 'weekly_pm_item_3', 'weekly_pm_item_4', 'weekly_pm_item_5', 'weekly_pm_item_6', 'weekly_pm_item_7', 'weekly_pm_item_8', 'weekly_pm_item_9')
     def _compute_checklist_complete(self):
       #This function determines the value of the weekly_pm_checklist_complete.
       #Returns True if the checklist is complete, False otherwise.
@@ -77,7 +77,7 @@ class NxcPmWeekly(models.Model):
         else:
           record['weekly_pm_checklist_complete'] = False
 
-    @on_create
+    @api.model_create
     def new_activity_on_creation(self):
       """Create an Odoo activity for the record on creation."""
       activity = self.env['mail.activity'].create({
@@ -89,7 +89,7 @@ class NxcPmWeekly(models.Model):
         'res_model': self._name,
       })
 
-    @on_write
+    @api.depends('stage_id')
     def close_activity_on_completion(self):
       """Close the activity when the record's stage_id is set to 'done'."""
       if self.stage_id == 'done':
@@ -114,8 +114,8 @@ class NxcPmWeekly(models.Model):
 
     @api.model
     def _get_sequence(self):
-        return 'PM/WEEKLY/%03d' % self.env['ir.sequence'].next_by_code('nxc_pm_weekly')
+      return 'PM/WEEKLY/%03d' % self.env['ir.sequence'].next_by_code('nxc_pm_weekly')
 
-    @api.on_create
+    @api.model_create
     def set_name(self):
-        self.name = self._get_sequence()
+      self.name = self._get_sequence()
