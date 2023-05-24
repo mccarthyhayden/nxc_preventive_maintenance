@@ -6,6 +6,7 @@
     'description': 'This custom module was developed for Next Chapter Manufacturing to create cleaing and maintenance checklists at regular intervals.',
     'author': 'Hayden McCarthy',
     'website': 'https://www.nxcmfg.com',
+    'license': 'AGPL-3',
     'data': [
         'views/view_nxc_cleaning_monthly_form.xml',
         'views/view_nxc_cleaning_weekly_form.xml',
