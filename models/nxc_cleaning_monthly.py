@@ -5,7 +5,7 @@ class NxcCleaningMonthly(models.Model):
     _name = 'nxc_preventive_maintenance.nxc_cleaning_monthly'
 
     name = fields.Char(string='Name', required=True)
-    responsible_user = fields.Many2One('res.users', string='Responsible User')
+    responsible_user = fields.Many2one('res.users', string='Responsible User')
     stage_id = fields.Selection(
         selection=[
             ('scheduled', 'Scheduled'),
