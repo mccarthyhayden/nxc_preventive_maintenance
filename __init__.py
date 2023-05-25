@@ -1,7 +1,7 @@
 from . import models
 from . import views
 from odoo import api, SUPERUSER_ID
-from odoo.addons.base.models import ir_cron
+from odoo.addons.base.models import cron_job
 
 def _setup(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
