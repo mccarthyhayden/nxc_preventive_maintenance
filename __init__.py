@@ -1,7 +1,7 @@
 from . import models
 from . import views
 from odoo import api, SUPERUSER_ID
-from odoo.addons.base.models import cron_job
+from odoo.addons.base.models.ir_cron import cron as ir_cron
 
 def _setup(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
@@ -22,7 +22,7 @@ def uninstall_hook(cr, registry):
 def post_init_hook(cr, registry):
     _setup(cr, registry)
 
-@cron_job(
+@ir_cron.scheduled(
       '0 0 1 * *',
       'Create new Monthly Cleaning record',
       number_of_calls=-1,
@@ -33,7 +33,7 @@ def post_init_hook(cr, registry):
 def create_new_cleaning_monthly_record(self):
       self.env['nxc_cleaning_monthly'].create({})
 
-@cron_job(
+@ir_cron.scheduled(
       '0 17 * * 5',
       'Create new Weekly Cleaning record',
       number_of_calls=-1,
@@ -44,7 +44,7 @@ def create_new_cleaning_monthly_record(self):
 def create_new_cleaning_weekly_record(self):
       self.env['nxc_cleaning_weekly'].create({})
 
-@cron_job(
+@ir_cron.scheduled(
       '0 17 * * 5',
       'Create new Weekly PM record',
       number_of_calls=-1,
