@@ -7,15 +7,15 @@
       <field name="inherit_id"></field>
       <field name="arch" type="xml">
         <form string="Weekly Cleaning Checklist" version="1.0">
-          <field name="name" readonly=true/>
-          <field name="create_date" readonly=true/>
+          <field name="name" readonly="true"/>
+          <field name="create_date" readonly="true"/>
           <field name="responsible_user"/>
           <group name="group_weekly_cleaning_checklist">
             <group name="group_weekly_cleaning_checklist_left">
-              <field name="weekly_cleaning_item_1" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_cleaning_item_2" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_cleaning_item_3" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_cleaning_checklist_complete" widget="boolean_toggle" force_save="True" invisible="1"/>
+              <field name="weekly_cleaning_item_1" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_cleaning_item_2" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_cleaning_item_3" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_cleaning_checklist_complete" widget="boolean_toggle" invisible="1"/>
             </group>
           </group>
         </form>

@@ -7,35 +7,35 @@
       <field name="inherit_id"></field>
       <field name="arch" type="xml">
         <form string="weekly Preventive Maintenance Checklist" version="1.0">
-          <field name="name" readonly=true/>
-          <field name="create_date" readonly=true/>
+          <field name="name" readonly="true"/>
+          <field name="create_date" readonly="true"/>
           <field name="responsible_user"/>
-          <field name="weekly_pm_checklist_complete" widget="boolean_toggle" force_save="True" invisible="1"/>
+          <field name="weekly_pm_checklist_complete" widget="boolean_toggle" invisible="1"/>
           <group name="group_weekly_pm_checklist">
             <group name="group_weekly_pm_checklist_left" string="Additive Machines">
-              <field name="weekly_pm_item_1" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_1" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
             <group name="group_weekly_pm_checklist_right" string="Powder Sieve">
-              <field name="weekly_pm_item_2" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_pm_item_3" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_2" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_pm_item_3" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
           </group>
           <group name="group_weekly_pm_checklist_2">
             <group name="group_weekly_pm_checklist_2_left" string="Powder Removal Station">
-              <field name="weekly_pm_item_4" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_4" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
             <group name="group_weekly_pm_checklist_2_right" string="Wire EDM">
-              <field name="weekly_pm_item_5" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_pm_item_6" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_5" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_pm_item_6" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
           </group>
           <group name="group_weekly_pm_checklist_3">
             <group name="group_weekly_pm_checklist_3_left" string="Immersion Separator Vacuum">
-              <field name="weekly_pm_item_7" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
-              <field name="weekly_pm_item_8" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_7" attrs="{'readonly': [['stage_id','=','done']]}"/>
+              <field name="weekly_pm_item_8" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
             <group name="group_weekly_pm_checklist_3_right" string="Finishing Workbench">
-              <field name="weekly_pm_item_9" attrs="{"readonly": [["stage_id","=","done"]]}" force_save="True"/>
+              <field name="weekly_pm_item_9" attrs="{'readonly': [['stage_id','=','done']]}"/>
             </group>
           </group>
         </form>
