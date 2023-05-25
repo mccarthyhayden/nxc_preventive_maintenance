@@ -22,35 +22,14 @@ def uninstall_hook(cr, registry):
 def post_init_hook(cr, registry):
     _setup(cr, registry)
 
-@ir_cron.scheduled(
-      '0 0 1 * *',
-      'Create new Monthly Cleaning record',
-      number_of_calls=-1,
-      priority=10,
-      model='nxc_cleaning_monthly',
-      type='ir.actions.server',
-    )
+@api.model_cron('0 0 1 * *', name='Create new Monthly Cleaning record', numbercall=-1, priority=10)
 def create_new_cleaning_monthly_record(self):
       self.env['nxc_cleaning_monthly'].create({})
 
-@ir_cron.scheduled(
-      '0 17 * * 5',
-      'Create new Weekly Cleaning record',
-      number_of_calls=-1,
-      priority=10,
-      model='nxc_cleaning_weekly',
-      type='ir.actions.server',
-    )
+@api.model_cron('0 17 * * 5', name='Create new Weekly Cleaning record', numbercall=-1, priority=10)
 def create_new_cleaning_weekly_record(self):
       self.env['nxc_cleaning_weekly'].create({})
 
-@ir_cron.scheduled(
-      '0 17 * * 5',
-      'Create new Weekly PM record',
-      number_of_calls=-1,
-      priority=10,
-      model='nxc_pm_weekly',
-      type='ir.actions.server',
-    )
+@api.model_cron('0 17 * * 5', name='Create new Weekly PM record', numbercall=-1, priority=10)
 def create_new_pm_weekly_record(self):
       self.env['nxc_pm_weekly'].create({})
