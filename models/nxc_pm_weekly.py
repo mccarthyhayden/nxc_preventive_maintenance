@@ -102,18 +102,6 @@ class NxcPmWeekly(models.Model):
         for activity in activities:
           activity.action_feedback()
 
-    @cron_job(
-      '0 17 * * 5',
-      'Create a new record.',
-      number_of_calls=-1,
-      priority=10,
-      model='nxc_pm_weekly',
-      type='ir.actions.server',
-    )
-    def create_new_record_every_friday(self):
-      """Create a new record."""
-      self.env['nxc_pm_weekly'].create({})
-
     @api.model
     def _get_sequence(self):
       return 'PM/WEEKLY/%03d' % self.env['ir.sequence'].next_by_code('nxc_pm_weekly')
