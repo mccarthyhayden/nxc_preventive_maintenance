@@ -4,7 +4,6 @@
     <record id="view_nxc_pm_weekly_form" model="ir.ui.view">
       <field name="name">nxc.pm.weekly.form</field>
       <field name="model">nxc_preventive_maintenance.nxc_pm_weekly</field>
-      <field name="inherit_id"></field>
       <field name="arch" type="xml">
         <form string="weekly Preventive Maintenance Checklist" version="1.0">
           <field name="name" readonly="true"/>
