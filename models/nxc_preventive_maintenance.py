@@ -1,7 +1,6 @@
 from odoo import api, fields, models
 
 class NxcPreventiveMaintenance(models.Model):
-    _inherit = ''
 
     #Design Checklist Items
     design_attrs = {

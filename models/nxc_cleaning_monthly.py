@@ -1,7 +1,6 @@
 from odoo import api, fields, models
 
 class NxcCleaningMonthly(models.Model):
-    _inherit = ''
     _name = 'nxc_preventive_maintenance.nxc_cleaning_monthly'
 
     name = fields.Char(string='Name', required=True)

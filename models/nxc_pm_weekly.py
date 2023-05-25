@@ -1,7 +1,6 @@
 from odoo import api, fields, models
 
 class NxcPmWeekly(models.Model):
-    _inherit = ''
     _name = 'nxc_preventive_maintenance.nxc_pm_weekly'
 
     name = fields.Char(string='Name', required=True)
