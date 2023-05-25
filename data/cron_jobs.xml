@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Cron job to create new Monthly Cleaning records -->
+    <record id="cron_job_create_new_cleaning_monthly" model="ir.cron">
+      <field name="name">Create new Monthly Cleaning record</field>
+      <field name="model">nxc_cleaning_monthly</field>
+      <field name="function">create</field>
+      <field name="args">(1,)</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">months</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">10</field>
+      <field name="monthtype">date</field>
+      <field name="monthbyday">1</field>
+    </record>
+
+    <!-- Cron job to create new Weekly Cleaning records -->
+    <record id="cron_job_create_new_cleaning_weekly" model="ir.cron">
+      <field name="name">Create new Weekly Cleaning record</field>
+      <field name="model">nxc_cleaning_weekly</field>
+      <field name="function">create</field>
+      <field name="args">(1,)</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">weeks</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">10</field>
+      <field name="day_of_week">5</field>
+    </record>
+
+    <!-- Cron job to create new Weekly PM records -->
+    <record id="cron_job_create_new_pm_weekly" model="ir.cron">
+      <field name="name">Create new Weekly PM record</field>
+      <field name="model">nxc_pm_weekly</field>
+      <field name="function">create</field>
+      <field name="args">(1,)</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">weeks</field>
+      <field name="numbercall">-1</field>
+      <field name="priority">10</field>
+      <field name="day_of_week">5</field>
+    </record>
+  </data>
+</odoo>

@@ -21,15 +21,3 @@ def uninstall_hook(cr, registry):
 
 def post_init_hook(cr, registry):
     _setup(cr, registry)
-
-@api.model_cron('0 0 1 * *', name='Create new Monthly Cleaning record', numbercall=-1, priority=10)
-def create_new_cleaning_monthly_record(self):
-      self.env['nxc_cleaning_monthly'].create({})
-
-@api.model_cron('0 17 * * 5', name='Create new Weekly Cleaning record', numbercall=-1, priority=10)
-def create_new_cleaning_weekly_record(self):
-      self.env['nxc_cleaning_weekly'].create({})
-
-@api.model_cron('0 17 * * 5', name='Create new Weekly PM record', numbercall=-1, priority=10)
-def create_new_pm_weekly_record(self):
-      self.env['nxc_pm_weekly'].create({})
