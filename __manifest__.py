@@ -13,6 +13,7 @@
         'views/view_nxc_pm_weekly_form.xml',
         'models/nxc_preventive_maintenance_config.py',
         'views/view_nxc_preventive_maintenance_config.xml',
+        'data/cron_jobs.xml',
     ],
     'installable': True,
     'auto_install': False,
